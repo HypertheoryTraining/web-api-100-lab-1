@@ -63,6 +63,11 @@ Right now the test in `AddingAShow.cs` called `AddShow()` is using the host to r
       1. Has more than zero shows listed.
       2. That the show you added in step 1 above is one of the shows in the list.
 
+```http
+GET http://localhost:1338/api/shows
+Accept: application/json
+```
+
 > **Extra Credit** The list of shows should be returned in reverse chronological order from the API endpoint. (the newest show should be the first in the list). Can you modify the test to require this? Can you make that pass?
 
 1. Validation
