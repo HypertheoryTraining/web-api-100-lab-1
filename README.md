@@ -4,6 +4,11 @@ Welcome to the lab!
 
 The instructor will walk you through the gist of the lab before you start.
 
+I'll walk you through this: 
+
+- Remove your `dev-environment` from Docker.
+- Use the new `dev-environment` for this lab.
+
 ## Requirements
 
 We have a frontend application that is served from our API project's `wwwroot` folder.
