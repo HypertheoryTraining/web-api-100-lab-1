@@ -8,10 +8,13 @@ import { ShowsStore } from './shows.store';
   imports: [RouterOutlet, RouterLink],
   providers: [ShowsStore],
   template: `
-    <header>
+    <header class="text-center">
       <h1 class="font-black text-3xl">TV Shows</h1>
       <p>Share your favorite shows with your friends!</p>
-      <a class="btn btn-success btn-xl" routerLink="add">
+      <a
+        class="btn btn-success btn-xl hover:ring-4  ring-amber-200 mt-4"
+        routerLink="add"
+      >
         Share Your Favorite Show
       </a>
     </header>

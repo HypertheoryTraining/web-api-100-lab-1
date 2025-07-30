@@ -1,10 +1,22 @@
+using Marten;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+// This removes the Server header that says "Kestrel"
+builder.WebHost.ConfigureKestrel(serverOptions => { serverOptions.AddServerHeader = false; });
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+var connectionString = builder.Configuration.GetConnectionString("db") ?? 
+                       throw new Exception("Need a connection string");
+builder.Services.AddMarten(config =>
+{
+    config.Connection(connectionString);
+
+}).UseLightweightSessions();
 
 var app = builder.Build();
 
@@ -14,10 +26,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseAuthorization();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.MapControllers();
-
 app.Run();
 
 public partial class Program;
